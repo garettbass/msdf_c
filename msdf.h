@@ -929,8 +929,9 @@ int msdf_genGlyph(msdf_Result* result, stbtt_fontinfo *font, int stbttGlyphIndex
                 contours[j].end = i;
                 j++;
             }
-
-            contours[j].start = i;
+            if (j < contour_count) {
+                contours[j].start = i;
+            }
         } else if (i >= num_verts) {
             contours[j].end = i;
         }
