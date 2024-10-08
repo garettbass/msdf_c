@@ -1117,8 +1117,8 @@ int msdf_genGlyph(msdf_Result* result, stbtt_fontinfo *font, int stbttGlyphIndex
     // normalize shape
     for (int i = 0; i < contour_count; i++) {
         if (contour_data[i].edge_count == 1) {
-            msdf_EdgeSegment *parts[3] = {0};
-            msdf_edgeSplit(&contour_data[i].edges[0], parts[0], parts[1], parts[2]);
+            msdf_EdgeSegment parts[3] = {0};
+            msdf_edgeSplit(&contour_data[i].edges[0], &parts[0], &parts[1], &parts[2]);
             if (allocCtx.free) {
                 allocCtx.free(contour_data[i].edges, allocCtx.ctx);
             }
